@@ -11,6 +11,7 @@ export default defineConfig({
       filename: 'remoteEntry.js',
       exposes: {
         './Counter': './src/Counter',
+        './ToDo': './src/ToDo'
       },
       shared: ['react', 'react-dom'],
     }),
