@@ -8,6 +8,12 @@ export default defineConfig({
     react(),
     federation({
       name: 'remote_app',
+      remotes: {
+        burns: "https://mfe-remote-three.vercel.app/assets/remoteEntry.js",
+        reilly: "https://mfe-remote-test-fn19.vercel.app/assets/remoteEntry.js",
+        leo: "https://remote-test.vercel.app/assets/remoteEntry.js",
+
+      },
       filename: 'remoteEntry.js',
       exposes: {
         './Counter': './src/Counter',
