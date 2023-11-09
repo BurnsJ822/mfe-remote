@@ -51,7 +51,7 @@ const TodoList = () => {
 
   return (
     <div style={{border: '1px solid #ccc', padding: '10px', borderRadius: '8px'}}>
-        <span>Burns's Remote</span>
+        <span>Burns's Remote WOAAAAAAAAHHHHHHHHHHHHHHHHHHHHHHHH</span>
       <h1>Todo List</h1>
       <input
         type="text"
