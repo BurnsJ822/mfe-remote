@@ -1,19 +1,15 @@
-import React, { useState, ChangeEvent, KeyboardEvent } from 'react';
+import { useState, ChangeEvent, KeyboardEvent } from 'react';
 
-// Define the Todo interface
 interface Todo {
   id: number;
   text: string;
   completed: boolean;
 }
 
-const TodoList: React.FC = () => {
-  // State to manage the list of todos
+const TodoList = () => {
   const [todos, setTodos] = useState<Todo[]>([]);
-  // State to manage the input value for adding new todos
   const [newTodoText, setNewTodoText] = useState<string>('');
 
-  // Function to add a new todo
   const addTodo = () => {
     if (newTodoText.trim() === '') return;
 
@@ -27,7 +23,6 @@ const TodoList: React.FC = () => {
     setNewTodoText('');
   };
 
-  // Function to toggle the completion status of a todo
   const toggleTodo = (id: number) => {
     const updatedTodos = todos.map((todo) => {
       if (todo.id === id) {
@@ -39,18 +34,15 @@ const TodoList: React.FC = () => {
     setTodos(updatedTodos);
   };
 
-  // Function to remove a todo
   const removeTodo = (id: number) => {
     const updatedTodos = todos.filter((todo) => todo.id !== id);
     setTodos(updatedTodos);
   };
 
-  // Handle input change
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setNewTodoText(event.target.value);
   };
 
-  // Handle Enter key press in the input field
   const handleKeyPress = (event: KeyboardEvent<HTMLInputElement>) => {
     if (event.key === 'Enter') {
       addTodo();
@@ -59,13 +51,14 @@ const TodoList: React.FC = () => {
 
   return (
     <div>
+        <span>Burns's Remote</span>
       <h1>Todo List</h1>
       <input
         type="text"
         placeholder="Add a new todo"
         value={newTodoText}
         onChange={handleInputChange}
-        onKeyPress={handleKeyPress}
+        onKeyDown={handleKeyPress}
       />
       <button onClick={addTodo}>Add</button>
       <ul>
